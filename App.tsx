@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
+import { bgColor } from './colors';
 import { StyleSheet, Text, View } from 'react-native';
-import Teste from './src/Teste';
+
 import Header from './src/components/Header';
 import ListRenderer from './src/components/ListRenderer';
 
@@ -23,7 +24,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
-    backgroundColor: '#2c3e50',
+    backgroundColor: bgColor,
     height: '100%',
     // flex: 1,
     // flexDirection: 'column'

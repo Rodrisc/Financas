@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     text:{
         fontSize: 24,
         color: textColor,
-        fontWeight: '200'
+        fontWeight: '400'
     },
     espacamento:{
         width: '100%',
