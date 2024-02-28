@@ -26,11 +26,35 @@ export default class PessoaController {
                     );
                 },
                 error => {
-                    console.log("Erro durante a transação:", error);
+                    console.log("Erro durante a criação:", error);
                     reject(error);
                 }
             );
         });
+    }
+
+    delete(pessoa: Pessoa){
+        return new Promise((resolve, reject) =>{
+            db.transaction(
+                tx => {
+                    tx.executeSql(
+                        `delete from ${table} where id = ?;`, [pessoa.id],
+                        (_, {rows}) =>{
+                            console.log(`id ${pessoa.id} deletado`)
+                            resolve(rows)
+                        },
+                        (_, error)=>{
+                            console.log('erro: '+ error)
+                            reject(error)
+                            return true
+                        }
+                    )
+                }, error => {
+                    console.log("Erro durante a exclusão", error)
+                    reject(error)
+                }
+            )
+        })
     }
     
 }
