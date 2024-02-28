@@ -1,42 +1,68 @@
 import { FlatList, View, Text } from "react-native"
 import styles from "./styles/listRenderer"
-import { textPago, textDevido, textRestante } from "../../colors"
+import { textPago, textDevido, textRestante, bgColorListRenderer } from "../../colors"
+import formatNumber from "../utils/FormatNumer";
 
-// interface ListRendererProps {
-//     data: object
-// }
+interface ListRendererProps {
+    user: string;
+    devido: number;
+    pago: number;
+}
 
-const ListRenderer: React.FC = () => {
-
+const ListRenderer: React.FC<ListRendererProps> = ({user, devido, pago}) => {
+    var status : number
+        , restante : number = 0;
+        
     const arrStatus = Array(
-        'Pago',
-        'Pendente',
-        'Pago Parcial'
+        'Pagamento Concluído',
+        'Pagamento Pendente',
+        'Pagamento Parcial'
+    )
+    
+    const arrCores = Array(
+        textPago,
+        textDevido,
+        textRestante
     )
 
-    return(
+    if(pago){
+        if (devido - pago > 0){
+            status = 2
+            restante = devido - pago
+        } 
+        else{
+            status = 0
+        }
+    } else {
+        status = 1
+        restante = devido - pago
+    }
+
+    return (
         <View style={styles.container}>
-           <View style={styles.containerInfo}>
 
-                <View style={styles.containerInfoUser}>
-                    <Text style={styles.textInfoUser}>Judson Alexander</Text>
+            <View style={styles.containerInfoUser}>
+                <Text style={styles.textInfoUser}>{user}</Text>
+            </View>
+
+            <View style={styles.containerInfo}>
+
+                <View >
+                    <View>
+                        <Text style={styles.textInfoValores}>Total Devido: R$ <Text style={styles.textDevido}>{formatNumber(devido) }</Text></Text>
+                        <Text style={styles.textInfoValores}>Total Restante: R$ <Text style={styles.textRestante}>{formatNumber(restante)}</Text></Text>
+                        <Text style={styles.textInfoValores}>Total Pago: R$ <Text style={styles.textPago}>{formatNumber(pago)}</Text></Text>
+                    </View>
                 </View>
-                
-                <View>
-                    <Text style={styles.textInfoValores}>Total Devido: R$ <Text style={styles.textDevido}>3.987,09</Text></Text>
-                    <Text style={styles.textInfoValores}>Total Pago: R$<Text style={styles.textPago}> 1.254,20</Text></Text>
-                    <Text style={styles.textInfoValores}>Restante: R$ <Text style={styles.textRestante}>1.500,00</Text></Text>
+
+                <View style={styles.containerStatus}>
+                    <View style={[styles.bgStatus, {backgroundColor: arrCores[status]}]}>
+                        <Text style={{ color: bgColorListRenderer }}>{arrStatus[status]}</Text>
+                    </View>
                 </View>
 
-           </View>
-
-           <View style={styles.containerStatus}>
-               <View style={styles.bgStatus}>
-                    <Text style={{color: 'white'}}>Não Pago</Text>
-               </View>
-                {/* <Text>Não Pago</Text>
-                <Text>Pago</Text> */}
-           </View>
+            </View>
+            
         </View>
     )
 

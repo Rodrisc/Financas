@@ -14,6 +14,8 @@ export const textColor = '#ECF0F1'
 // fim cores header
 
 // ========================= cores do listRenderer =========================
+export const borderBottomColorInfoUser = '#D3D3D3'
+export const bgColorListRenderer = '#fff'
 export const textUser = '#000'
 export const textPago = '#008000'
 export const textDevido = '#FF0000'
