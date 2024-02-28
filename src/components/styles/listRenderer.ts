@@ -1,29 +1,34 @@
 import { StyleSheet } from "react-native";
-import { textPago, textDevido, textInfoValores, textRestante, textUser } from "../../../colors";
+import { textPago, textDevido, textInfoValores, textRestante, textUser, bgColorListRenderer, borderBottomColorInfoUser } from "../../../colors";
 
 
 const styles = StyleSheet.create({
     container:{
-        justifyContent: 'space-between',
-        backgroundColor: 'white',
+        backgroundColor: bgColorListRenderer,
         marginTop: 10,
         width: '100%',
         borderRadius: 5,
         padding: 10,
-        flexDirection: "row"
     },
 
     containerInfo:{
+        justifyContent: 'space-between',
+        flexDirection: "row"
     },
 
     containerInfoUser:{
-        paddingBottom: 10,
+        // paddingBottom: 10,
+        width: '100%',
+        borderBottomColor: borderBottomColorInfoUser,
+        borderBottomWidth: 0.5,
+        marginBottom: 10
     },
 
     textInfoUser:{
         fontWeight: '600',
         fontSize: 22,
-        color: textUser
+        color: textUser,
+        textTransform: "capitalize"
     },
 
     textDevido:{
@@ -52,7 +57,7 @@ const styles = StyleSheet.create({
     },
     
     bgStatus:{
-        backgroundColor: textDevido,
+        // backgroundColor: textDevido,
         paddingBottom: 5,
         paddingLeft: 10,
         paddingRight: 10,
