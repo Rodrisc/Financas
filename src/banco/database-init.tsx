@@ -13,17 +13,17 @@ export default class DatabaseInit {
 
     private InitDb(){
         var sql = [
-            `CREATE TABLE tb_banco (
+            `CREATE TABLE if not exists tb_banco (
                 id INT PRIMARY KEY NOT NULL,
                 nome TEXT NOT NULL
             );`,
 
-            `CREATE TABLE tb_pessoa (
+            `CREATE TABLE if not exists tb_pessoa (
                 id INT PRIMARY KEY NOT NULL,
                 nome TEXT NOT NULL
             );`,
 
-            `CREATE TABLE tb_valores (
+            `CREATE TABLE if not exists tb_valores (
                 id INT PRIMARY KEY NOT NULL,
                 pessoa_id INT NOT NULL,
                 banco_id INT NOT NULL,
