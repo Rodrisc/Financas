@@ -19,7 +19,7 @@ export const bgColorListRenderer = '#fff'
 export const textUser = '#000'
 export const textPago = '#008000'
 export const textDevido = '#FF0000'
-export const textRestante = '#118CEA' 
+export const textRestante = background_header 
 export const textInfoValores = '#565656'
 
 // fim cores listRenderer

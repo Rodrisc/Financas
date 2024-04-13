@@ -1,4 +1,4 @@
-import { FlatList, View, Text } from "react-native"
+import { FlatList, View, Text, PressableProps, Pressable } from "react-native"
 import styles from "./styles/listRenderer"
 import { textPago, textDevido, textRestante, bgColorListRenderer } from "../../colors"
 import formatNumber from "../utils/FormatNumer";
@@ -7,9 +7,10 @@ interface ListRendererProps {
     user: string;
     devido: number;
     pago: number;
+    onPress: () => void;
 }
 
-const ListRenderer: React.FC<ListRendererProps> = ({user, devido, pago}) => {
+const ListRenderer: React.FC<ListRendererProps> = ({user, devido, pago, ...rest}) => {
     var status : number
         , restante : number = 0;
         
@@ -39,7 +40,8 @@ const ListRenderer: React.FC<ListRendererProps> = ({user, devido, pago}) => {
     }
 
     return (
-        <View style={styles.container}>
+        <Pressable {...rest}>
+            <View style={styles.container}>
 
             <View style={styles.containerInfoUser}>
                 <Text style={styles.textInfoUser}>{user}</Text>
@@ -62,8 +64,9 @@ const ListRenderer: React.FC<ListRendererProps> = ({user, devido, pago}) => {
                 </View>
 
             </View>
-            
-        </View>
+
+            </View>
+        </Pressable>
     )
 
 }
