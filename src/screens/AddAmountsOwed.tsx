@@ -10,7 +10,7 @@ type RouteParams = {
 export default function AddAmountsOwed({ id }: RouteParams){
     return(
         <View style={styles.container}>
-            <Header back={true} title="Adicionar Valores"/>
+            {/* <Header back={true} title="Adicionar Valores"/> */}
         </View>
     )
 }

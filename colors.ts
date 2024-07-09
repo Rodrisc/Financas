@@ -23,3 +23,8 @@ export const textRestante = background_header
 export const textInfoValores = '#565656'
 
 // fim cores listRenderer
+
+// ========================= cores do botao adicionar =========================
+
+export const bgColorButton = background_header
+
