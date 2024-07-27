@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Index from "../screens/Index";
 import AddAmountsOwed from "../screens/AddAmountsOwed";
 import { background_header, textColor } from "../../colors";
+import clearedPayment from "../components/ClearedPayment";
 
 const {Navigator, Screen} = createNativeStackNavigator();
 
@@ -27,6 +28,7 @@ export default function Routes () {
             }}>
             <Screen name="Home" component={Index} options={{title: app}} />
             <Screen name="AddAmountsOwed" component={AddAmountsOwed} options={{title: addValues}}/>
+            {/* <Screen name="clearedPayment" component={clearedPayment} /> */}
         </Navigator>
      </NavigationContainer>   
     )
