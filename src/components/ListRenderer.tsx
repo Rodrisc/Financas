@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { FlatList, Text } from "react-native";
 import UserDebtItem from "./UserDebtItem";
+import Empty from "./Empty";
 
 interface ListRendererProps {
     arrDevidos: {
@@ -26,7 +27,7 @@ export default function ListRenderer({ arrDevidos }: ListRendererProps) {
             keyExtractor={item => item.id}
             renderItem={({ item }) => <UserDebtItem user={item.nome} devido={item.devido} pago={item.pago} onPress={() => handleOpenEdit(item.id)} />}
             showsHorizontalScrollIndicator={false}
-            ListEmptyComponent={<Text>Tem nada não</Text>}
+            ListEmptyComponent={<Empty />}
         />
     )
 }

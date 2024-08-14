@@ -1,5 +1,5 @@
 import { FlatList, Text } from "react-native";
-import ListRenderer from "./ListRendererValues";
+import ListRenderer from "./ListRenderer";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 
